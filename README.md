@@ -13,7 +13,7 @@ covering the HEDIS® digital quality-measurement and operations platform.
 
 The operational tooling and audit documentation are best viewed in the running app:
 
-**🔗 https://hedis-engine.vercel.app**  · demo login `qdirector` / `alpine2026`
+**🔗 https://hedis-alpine.vercel.app**  · demo login `qdirector` / `alpine2026`
 
 Inside the app:
 - **SOP Library** — 12 Standard Operating Procedures, one for every operational process
