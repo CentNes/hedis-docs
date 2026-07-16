@@ -355,7 +355,7 @@ I have enough well-grounded material. Compiling the reference now.
 
 ## Puerto Rico Laws & Regulations Relevant to a Medicaid MCO (Plan Vital)
 
-Reference compilation for Alpine Quality / First Medical Health Plan (Medicare + Medicaid lines). Grounded via web search; all primary-source URLs below resolved during research. This is a reference compilation, **not legal advice**. Spanish is the controlling language for all PR statutes.
+Reference compilation for HEDIS / First Medical Health Plan (Medicare + Medicaid lines). Grounded via web search; all primary-source URLs below resolved during research. This is a reference compilation, **not legal advice**. Spanish is the controlling language for all PR statutes.
 
 ### Authority / primary-vs-secondary notes
 - **Primary/authoritative** = the statute text on `bvirtualogp.pr.gov` (Oficina de Gerencia y Presupuesto "Biblioteca Virtual") and `lexjuris.com`. The OGP PDFs are the official consolidated ("según enmendada") versions but are large, image/scanned, and sometimes slow to load (one timed out on fetch; another downloaded as a 207 KB scanned PDF — links are valid, just not machine-text). LexJuris pages are clean HTML and load reliably.

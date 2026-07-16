@@ -1,7 +1,7 @@
-# Alpine Quality — Documentation for First Medical Health Plan
+# HEDIS — Documentation for First Medical Health Plan
 
 A curated documentation set for First Medical Health Plan (Plan Vital / Medicaid),
-covering the Alpine Quality digital HEDIS® measurement and quality-operations platform.
+covering the HEDIS® digital quality-measurement and operations platform.
 
 > **Data note:** The live demo runs entirely on **synthetic data — no PHI**. Real member
 > data enters only at the pilot stage, under a signed BAA and a HIPAA-compliant environment
@@ -13,7 +13,7 @@ covering the Alpine Quality digital HEDIS® measurement and quality-operations p
 
 The operational tooling and audit documentation are best viewed in the running app:
 
-**🔗 https://alpine-quality.vercel.app**  · demo login `qdirector` / `alpine2026`
+**🔗 https://hedis.vercel.app**  · demo login `qdirector` / `alpine2026`
 
 Inside the app:
 - **SOP Library** — 12 Standard Operating Procedures, one for every operational process
@@ -41,9 +41,9 @@ Inside the app:
 ## One-page summary
 
 - [presentation/leave-behind.html](presentation/leave-behind.html) — a printable one-page
-  overview of Alpine Quality (open in any browser, print to PDF).
+  overview of HEDIS (open in any browser, print to PDF).
 
 ---
 
-*Alpine Quality · Digital HEDIS engine for Plan Vital / Medicaid. HEDIS® is a registered
+*HEDIS · Digital HEDIS engine for Plan Vital / Medicaid. HEDIS® is a registered
 trademark of NCQA.*
