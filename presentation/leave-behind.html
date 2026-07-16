@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alpine Quality — Digital HEDIS for First Medical (Leave-Behind)</title>
+<style>
+  :root{
+    --navy:#12283f;
+    --navy2:#1b3a5c;
+    --blue:#2e75b6;
+    --blue-l:#d5e8f0;
+    --ink:#22303e;
+    --muted:#6b7a89;
+    --light:#f4f6f9;
+    --line:#e2e8ef;
+    --good:#2e8b57;
+    --amber:#d99a06;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{margin:0;background:#6b7a8d;font-family:'Segoe UI',Roboto,-apple-system,Helvetica,Arial,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{width:8.5in;min-height:11in;margin:18px auto;background:#fff;padding:0;box-shadow:0 12px 48px rgba(0,0,0,.35);position:relative;overflow:hidden}
+
+  /* Header */
+  .header{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,var(--blue) 100%);color:#fff;padding:22px 0.6in 18px;position:relative;overflow:hidden}
+  .header::after{content:'';position:absolute;right:-10px;bottom:-8px;width:220px;height:90px;opacity:.08;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 100'%3E%3Cpath d='M0 100 L60 25 L90 55 L130 10 L170 50 L200 20 L240 100Z' fill='white'/%3E%3C/svg%3E") no-repeat center/contain}
+  .header-top{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand svg{width:28px;height:28px;flex-shrink:0}
+  .brand-name{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+  .header-partner{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.6;font-weight:500}
+  .header h1{font-size:25px;font-weight:700;margin:10px 0 0;letter-spacing:-.01em;line-height:1.15}
+  .header-sub{font-size:12.5px;opacity:.78;margin-top:5px;line-height:1.45;font-weight:400}
+  .header-sub b{opacity:1;font-weight:600}
+
+  /* Content area */
+  .content{padding:16px 0.6in 0}
+
+  /* Section headers */
+  h2{font-size:11.5px;color:var(--blue);margin:15px 0 7px;text-transform:uppercase;letter-spacing:.08em;font-weight:700;display:flex;align-items:center;gap:8px}
+  h2::before{content:'';display:inline-block;width:3px;height:13px;background:var(--blue);border-radius:2px;flex-shrink:0}
+  h2::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line) 0%,transparent 100%)}
+
+  p,li{font-size:12px;line-height:1.48;color:var(--ink)}
+  ul{margin:4px 0;padding-left:17px}
+  li{margin:3px 0}
+  li b{color:var(--blue)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+  /* KPI cards */
+  .kpis{display:flex;gap:8px;margin:8px 0}
+  .kpis .c{flex:1;background:linear-gradient(135deg,var(--light) 0%,#eef3f8 100%);border:1px solid var(--line);border-radius:8px;padding:10px 11px;text-align:center;position:relative;overflow:hidden}
+  .kpis .c::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue));border-radius:8px 8px 0 0}
+  .kpis .n{font-size:18px;font-weight:800;color:var(--blue);line-height:1;margin-top:2px}
+  .kpis .l{font-size:9.5px;color:var(--muted);margin-top:4px;line-height:1.3}
+
+  /* Table */
+  table{width:100%;border-collapse:collapse;margin-top:5px;font-size:11.5px}
+  thead th{background:var(--navy);color:#fff;font-size:9px;text-transform:uppercase;letter-spacing:.06em;padding:5px 8px;text-align:left;font-weight:600}
+  thead th:first-child{border-radius:4px 0 0 0}
+  thead th:last-child{border-radius:0 4px 0 0;text-align:right}
+  tbody td{padding:5px 8px;border-bottom:1px solid var(--line);font-size:11px}
+  tbody tr:nth-child(even){background:#f8fafc}
+  tbody tr:last-child td{border-bottom:none}
+  tbody td:last-child{text-align:right;font-weight:600;color:var(--blue)}
+  .table-note{font-size:9.5px;color:var(--muted);margin-top:4px;font-style:italic}
+
+  /* Pipeline flow */
+  .flow{display:flex;align-items:stretch;margin:8px 0;gap:0}
+  .flow .s{flex:1;background:var(--light);border:1px solid var(--line);padding:7px 6px;text-align:center;font-size:10px;line-height:1.35;position:relative;border-radius:0}
+  .flow .s:first-child{border-radius:6px 0 0 6px}
+  .flow .s:last-child{border-radius:0 6px 6px 0}
+  .flow .s + .s{border-left:none}
+  .flow .s b{color:var(--blue);display:block;font-size:11px;margin-bottom:1px}
+  .flow .arrow{display:flex;align-items:center;justify-content:center;background:var(--blue);color:#fff;font-size:11px;font-weight:800;width:18px;flex-shrink:0;margin:-1px 0}
+
+  /* Footer */
+  .footer{margin:14px 0.6in 0;border-top:2px solid var(--navy);padding:9px 0 14px;display:flex;justify-content:space-between;align-items:center}
+  .footer-brand{display:flex;align-items:center;gap:7px}
+  .footer-brand svg{width:16px;height:16px}
+  .footer-brand span{font-size:10px;color:var(--navy);font-weight:700;letter-spacing:.03em}
+  .footer-tagline{font-size:9px;color:var(--muted);letter-spacing:.02em}
+  .footer-cta{font-size:10px;color:var(--blue);font-weight:600}
+
+  @page{size:letter;margin:0}
+  @media print{
+    body{background:#fff}
+    .page{box-shadow:none;margin:0;width:100%;min-height:auto}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <div class="brand">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 28 L16 6 L28 28Z" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 28 L16 16 L22 28" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M8 22 L24 22" stroke="rgba(255,255,255,.3)" stroke-width="1" stroke-dasharray="2 2"/>
+        </svg>
+        <span class="brand-name">Alpine Quality</span>
+      </div>
+      <span class="header-partner">First Medical Health Plan</span>
+    </div>
+    <h1>Digital HEDIS for Plan Vital</h1>
+    <div class="header-sub">A digital-native quality engine running NCQA's official measure logic — to report your rates and help <b>move</b> them, ahead of the MY2029/2030 digital mandate.</div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="grid">
+      <div>
+        <h2>Why now</h2>
+        <ul>
+          <li>NCQA retires the hybrid (chart-chase) method by <b>MY2029</b>; HEDIS goes <b>fully digital by MY2030</b>, distributed as FHIR + CQL packages.</li>
+          <li>Getting ahead of it reduces manual chart abstraction and de-risks Plan Vital quality reporting to ASES.</li>
+        </ul>
+
+        <h2>What we built</h2>
+        <p style="font-size:11.5px;margin-bottom:4px">A working end-to-end pipeline — <b>one command</b> takes raw plan data to submittable HEDIS output on NCQA's own reference engine:</p>
+        <div class="flow">
+          <div class="s"><b>Ingest</b>claims/enroll/lab → FHIR</div>
+          <div class="arrow">›</div>
+          <div class="s"><b>Validate</b>reconcile</div>
+          <div class="arrow">›</div>
+          <div class="s"><b>Measure</b>NCQA ELM</div>
+          <div class="arrow">›</div>
+          <div class="s"><b>Submit</b>IDSS + PLD</div>
+          <div class="arrow">›</div>
+          <div class="s"><b>Close gaps</b>pursuit lists</div>
+        </div>
+
+        <h2>Measures proven (demo)</h2>
+        <table>
+          <thead>
+            <tr><th>Measure</th><th>Population built from</th><th>Rate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Colorectal (COL)</td><td>Encounter (claims)</td><td>57.1%</td></tr>
+            <tr><td>Breast (BCS)</td><td>Continuous enrollment</td><td>60.0%</td></tr>
+            <tr><td>Cervical (CCS)</td><td>Claims + lab (cytology/HPV)</td><td>60.0%</td></tr>
+            <tr><td>Diabetes HbA1c</td><td>Condition + lab (LOINC)</td><td>75.0%</td></tr>
+          </tbody>
+        </table>
+        <p class="table-note">Four structurally different measures, one engine, self-validating. Synthetic data — no PHI.</p>
+      </div>
+
+      <div>
+        <h2>Beyond reporting — move the rate</h2>
+        <div class="kpis">
+          <div class="c"><div class="n">40→80%</div><div class="l">Supplemental-data lift (BCS demo)</div></div>
+          <div class="c"><div class="n">Per-PCP</div><div class="l">Prospective open-gap pursuit lists</div></div>
+        </div>
+        <ul>
+          <li><b>Supplemental data</b> captures numerator credit outside claims — source-tagged and audit-traceable (DAV / PSV aware).</li>
+          <li><b>Care-gap closure</b>: who needs what, routed to the responsible provider — aimed at the measures ASES scores.</li>
+        </ul>
+
+        <h2>Why it fits First Medical</h2>
+        <ul>
+          <li><b>Official logic</b> on NCQA's reference stack — certification-safe, no translation drift.</li>
+          <li><b>Services-light &amp; digital-native</b> — less chart chase as hybrid retires.</li>
+          <li><b>Matches your outputs</b> (IDSS / PLD) — evaluate in parallel, rip nothing out.</li>
+          <li><b>Medicaid-focused</b> scope — lean and targeted to Plan Vital.</li>
+        </ul>
+
+        <h2>The proposed pilot</h2>
+        <ul>
+          <li><b>3–5 ASES measures</b>, your real Member-360 feeds, one measurement period.</li>
+          <li>Run <b>in parallel</b> with current reporting.</li>
+          <li>Deliverable: <b>matching rates + a prioritized gap-closure list</b>, with quantified lift.</li>
+        </ul>
+        <div class="kpis" style="margin-top:6px">
+          <div class="c"><div class="n">Low cost</div><div class="l">Wedge-scoped</div></div>
+          <div class="c"><div class="n">Low risk</div><div class="l">Parallel run</div></div>
+          <div class="c"><div class="n">Measurable</div><div class="l">Rate lift</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-brand">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 28 L16 6 L28 28Z" fill="none" stroke="var(--navy)" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M10 28 L16 16 L22 28" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linejoin="round"/>
+      </svg>
+      <span>Alpine Quality</span>
+      <span class="footer-tagline">— NCQA-reference digital HEDIS engine</span>
+    </div>
+    <span class="footer-cta">Next step: agree pilot scope &amp; share sample feeds</span>
+  </div>
+
+</div>
+</body>
+</html>
